@@ -127,14 +127,13 @@ def main ():
     
     base_interest = 0.05
     
+    bonus_interest_rate = card_interest + sal_interest + invest_interest + insure_interest + bill_interest
+    annual_interest_rate = base_interest + bonus_interest_rate
+    
     if balance <= 80000:
-        bonus_interest_rate = card_interest + sal_interest + invest_interest + insure_interest + bill_interest
-        annual_interest_rate = base_interest + bonus_interest_rate
         annual_interest = round((annual_interest_rate * balance)/100, None)
     else:
         excess = balance - 80000
-        bonus_interest_rate = card_interest + sal_interest + invest_interest + insure_interest + bill_interest
-        annual_interest_rate = base_interest + bonus_interest_rate
         annual_interest = round((annual_interest_rate*80000)/100 + (base_interest*excess)/100, None)
     
     print("Your estimated annual interest is ${} @ {}% p.a.".format(annual_interest, annual_interest_rate))
